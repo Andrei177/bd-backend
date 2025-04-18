@@ -4,7 +4,6 @@ import { generateAccessToken, generateRefreshToken } from "./generateJwt.js";
 
 export class UserController{
     static async signup(req, res){
-
         const { userSnils, userPassword, roleId } = req.body;
 
         const candidate = await User.findOne({where: {user_snils: userSnils}})
@@ -37,8 +36,6 @@ export class UserController{
         const { userSnils, userPassword } = req.body;
 
         const candidate = await User.findOne({where: {user_snils: userSnils}});
-
-        console.log("КАНДИДАТ: " + candidate);
 
         if(!candidate){
             return res.status(404).json({message: "Пользователь с таким СНИЛС не зарегистрирован"});

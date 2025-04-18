@@ -8,7 +8,7 @@ import { DataTypes } from "sequelize";
 
 export const User = sequelize.define('users', {
     user_id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-    user_snils: { type: DataTypes.STRING },
+    user_snils: { type: DataTypes.STRING, unique: true},
     user_password: { type: DataTypes.STRING },
     role_id: { type: DataTypes.INTEGER },
 },
